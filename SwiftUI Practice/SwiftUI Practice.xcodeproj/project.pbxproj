@@ -75,6 +75,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		8A47EEC028B5143800E5E8EF /* SwiftUI Persistance */ = {
+			isa = PBXGroup;
+			children = (
+				8A877B0828B3604100E6B3EB /* SwiftUI_PracticeApp.swift */,
+				8A877B0A28B3604100E6B3EB /* ContentView.swift */,
+				8A877B1128B3604400E6B3EB /* Persistence.swift */,
+			);
+			path = "SwiftUI Persistance";
+			sourceTree = "<group>";
+		};
+		8A47EEC128B5144B00E5E8EF /* Menu */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Menu;
+			sourceTree = "<group>";
+		};
 		8A877AFC28B3604100E6B3EB = {
 			isa = PBXGroup;
 			children = (
@@ -98,10 +115,9 @@
 		8A877B0728B3604100E6B3EB /* SwiftUI Practice */ = {
 			isa = PBXGroup;
 			children = (
-				8A877B0828B3604100E6B3EB /* SwiftUI_PracticeApp.swift */,
-				8A877B0A28B3604100E6B3EB /* ContentView.swift */,
+				8A47EEC128B5144B00E5E8EF /* Menu */,
+				8A47EEC028B5143800E5E8EF /* SwiftUI Persistance */,
 				8A877B0C28B3604400E6B3EB /* Assets.xcassets */,
-				8A877B1128B3604400E6B3EB /* Persistence.swift */,
 				8A877B1328B3604400E6B3EB /* SwiftUI_Practice.xcdatamodeld */,
 				8A877B0E28B3604400E6B3EB /* Preview Content */,
 			);
