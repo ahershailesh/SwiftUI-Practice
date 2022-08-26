@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8A47EEC328B5148E00E5E8EF /* MenuList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A47EEC228B5148E00E5E8EF /* MenuList.swift */; };
+		8A77010928B8780300E45E3E /* StickyHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A77010828B8780300E45E3E /* StickyHeaderView.swift */; };
 		8A877B0928B3604100E6B3EB /* SwiftUI_PracticeApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A877B0828B3604100E6B3EB /* SwiftUI_PracticeApp.swift */; };
 		8A877B0B28B3604100E6B3EB /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A877B0A28B3604100E6B3EB /* ContentView.swift */; };
 		8A877B0D28B3604400E6B3EB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8A877B0C28B3604400E6B3EB /* Assets.xcassets */; };
@@ -36,6 +38,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		8A47EEC228B5148E00E5E8EF /* MenuList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuList.swift; sourceTree = "<group>"; };
+		8A77010828B8780300E45E3E /* StickyHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StickyHeaderView.swift; sourceTree = "<group>"; };
 		8A877B0528B3604100E6B3EB /* SwiftUI Practice.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "SwiftUI Practice.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		8A877B0828B3604100E6B3EB /* SwiftUI_PracticeApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUI_PracticeApp.swift; sourceTree = "<group>"; };
 		8A877B0A28B3604100E6B3EB /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -88,8 +92,17 @@
 		8A47EEC128B5144B00E5E8EF /* Menu */ = {
 			isa = PBXGroup;
 			children = (
+				8A47EEC228B5148E00E5E8EF /* MenuList.swift */,
 			);
 			path = Menu;
+			sourceTree = "<group>";
+		};
+		8A77010728B877E200E45E3E /* StickyHeader */ = {
+			isa = PBXGroup;
+			children = (
+				8A77010828B8780300E45E3E /* StickyHeaderView.swift */,
+			);
+			path = StickyHeader;
 			sourceTree = "<group>";
 		};
 		8A877AFC28B3604100E6B3EB = {
@@ -115,6 +128,7 @@
 		8A877B0728B3604100E6B3EB /* SwiftUI Practice */ = {
 			isa = PBXGroup;
 			children = (
+				8A77010728B877E200E45E3E /* StickyHeader */,
 				8A47EEC128B5144B00E5E8EF /* Menu */,
 				8A47EEC028B5143800E5E8EF /* SwiftUI Persistance */,
 				8A877B0C28B3604400E6B3EB /* Assets.xcassets */,
@@ -282,6 +296,8 @@
 				8A877B1228B3604400E6B3EB /* Persistence.swift in Sources */,
 				8A877B0B28B3604100E6B3EB /* ContentView.swift in Sources */,
 				8A877B1528B3604400E6B3EB /* SwiftUI_Practice.xcdatamodeld in Sources */,
+				8A47EEC328B5148E00E5E8EF /* MenuList.swift in Sources */,
+				8A77010928B8780300E45E3E /* StickyHeaderView.swift in Sources */,
 				8A877B0928B3604100E6B3EB /* SwiftUI_PracticeApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
