@@ -7,22 +7,44 @@
 
 import SwiftUI
 
+enum MenuItem: String, CaseIterable {
+    case calculator = "Calculator"
+    case todo = "TODO"
+    case weather = "Weather"
+    case pinterest = "Pinterest"
+    case youtube = "Youtube"
+    
+    var desinationView: some View {
+        Group {
+            switch self {
+            case .calculator:
+                CalculatorView()
+            case .todo:
+                Text(rawValue)
+            case .weather:
+                Text(rawValue)
+            case .pinterest:
+                Text(rawValue)
+            case .youtube:
+                Text(rawValue)
+                
+            }
+        }
+    }
+}
+
 struct MenuList: View {
-    private let menuItems = [
-        "TODO",
-        "Weather",
-        "Calculator",
-        "Pinterest"
-    ]
+    private let menuItems: [MenuItem] =
+        MenuItem.allCases
     
     var body: some View {
         NavigationView {
             List {
                 ForEach(menuItems, id: \.self) { item in
                     HStack {
-                        Text(item)
+                        Text(item.rawValue)
                             .foregroundColor(.black)
-                        NavigationLink(destination: Text(item)) {
+                        NavigationLink(destination: item.desinationView) {
                             EmptyView()
                         }
                         .opacity(0)
