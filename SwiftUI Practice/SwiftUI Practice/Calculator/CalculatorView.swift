@@ -7,6 +7,43 @@
 
 import SwiftUI
 
+class CalculatorViewModel: ObservableObject {
+    @Published var displayText: String = ""
+    private var result: Double = 0
+    private var operation: CalculatorButtonItem?
+    
+    func itemTapped(item: CalculatorButtonItem) {
+        switch item {
+        case .plus:
+            result += Double(displayText) ?? 0
+            displayText = "\(result)"
+        case .subtract:
+            result -= Double(displayText) ?? 0
+            displayText = "\(result)"
+        case .multiply:
+            result *= Double(displayText) ?? 0
+            displayText = "\(result)"
+        case .devide:
+            result /= Double(displayText) ?? 0
+            displayText = "\(result)"
+        case .equate:
+            displayText = "\(result)"
+        case .erase:
+            result = 0
+            displayText = ""
+        default:
+            display(item: item)
+        }
+        
+    }
+    
+    private func display(item: CalculatorButtonItem) {
+        displayText = displayText.appending(item.rawValue)
+    }
+    
+    
+}
+
 enum CalculatorButtonItem: String {
     case erase = "AC"
     case plusMinus = "+/-"
@@ -46,6 +83,24 @@ enum CalculatorButtonItem: String {
     }
 }
 
+extension Text {
+    func scaledFont(name: String, size: Double) -> some View {
+            return self.modifier(ScaledFont(name: name, size: size))
+        }
+}
+
+struct ScaledFont: ViewModifier {
+    @Environment(\.sizeCategory) var sizeCategory
+    var name: String
+    var size: Double
+
+    func body(content: Content) -> some View {
+       let scaledSize = UIFontMetrics.default.scaledValue(for: size)
+        return content.font(.custom(name, size: scaledSize))
+    }
+}
+
+
 struct CalculatorView: View {
     
     private let items: [[CalculatorButtonItem]] = [
@@ -54,6 +109,7 @@ struct CalculatorView: View {
         [.four, .five, .six, .subtract],
         [.one, .two, .three, .plus],
     ]
+    @ObservedObject private var viewModel = CalculatorViewModel()
     
     var body: some View {
         ZStack(alignment: .top) {
@@ -61,17 +117,17 @@ struct CalculatorView: View {
             VStack {
                 HStack {
                     Spacer()
-                    Text("0")
-                        .font(.system(size: 72))
+                    Text(viewModel.displayText.isEmpty ? "0" : viewModel.displayText)
+                        .scaledFont(name: "SF", size: 72)
                         .foregroundColor(.white)
-                        .frame(width: .infinity, height: 200)
+                        .frame(height: 200)
                 }
                 ForEach(items, id: \.self) { item in
                     getStackView(with: item)
                 }
                 HStack {
                     Button {
-                        print(0)
+                        viewModel.itemTapped(item: .zero)
                     } label: {
                         ZStack {
                             Capsule()
@@ -80,7 +136,7 @@ struct CalculatorView: View {
                                 .foregroundColor(CalculatorButtonItem.zero.forgroundColor)
                                 .font(.system(size: 48))
                         }
-                        .padding()
+                        .padding(.init(top: 8, leading: 0, bottom: 8, trailing: 0))
                     }
                     HStack {
                         getStackView(with: [.dot, .equate])
@@ -92,10 +148,10 @@ struct CalculatorView: View {
     }
     
     private func getStackView(with items: [CalculatorButtonItem]) -> some View {
-        HStack {
+        HStack(spacing: 8) {
             ForEach(items, id: \.self) { element in
                 Button {
-                    print(element)
+                    viewModel.itemTapped(item: element)
                 } label: {
                     ZStack {
                         Circle()
